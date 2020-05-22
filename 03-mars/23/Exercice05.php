@@ -18,6 +18,8 @@
 
     //Verifie si le premier formulaire a etait aficher sinon l'affiche.
     if (!isset($_POST["valider"])) {
+
+        //Déclaration des variables session.
         $_SESSION["position"] = 0;
         $_SESSION["compteur"] = 1;
         $_SESSION["tableau"] = array();
@@ -50,30 +52,38 @@
         //Stocke la valeur envoyer a partir du formulaire a la bonne position
         $tableau = $_SESSION["tableau2"][][] = array();
 
-        $i=0;
-        $cpt=1;
+        $i = 0;
+        $cpt = 1;
+
         //Ajoute toutes les valeurs envoyer a partir du formulaire dans un tableau
-        while($i<3){
-            $j=0;
-            while($j<3){
-                $tableau[$i][$j] = $_POST["nbEntre".$cpt];
+        while ($i < 3) {
+            $j = 0;
+            while ($j < 3) {
+                $tableau[$i][$j] = $_POST["nbEntre" . $cpt];
                 $cpt++;
                 $j++;
             }
             $i++;
+        }
+
+        /**
+         * Calcul le detrminet d'une matrice
+         * et retoune le resultat.
+         * @param array tab
+         */
+        function calculDeterminent($tab)
+        {
+
+            $detemninent = $tab[0][1] * (-1) * (($tab[1][0] * $tab[2][2]) -  ($tab[1][2] * $tab[2][0])) +
+                $tab[1][1] * (1) * (($tab[0][0] * $tab[2][2]) -  ($tab[2][0] * $tab[0][2])) +
+                $tab[2][1] * (-1) * (($tab[0][0] * $tab[1][2]) -  ($tab[1][0] * $tab[0][2]));
+
+            return $detemninent;
+        }
         
-        }
+        //Affiche le déterminnent d'un ematrice données.
+        echo calculDeterminent($tableau);
 
-
-       /// echo $tableau[2][2];
-        function calculDeterminenr($tab){
-            $colonne = 0;
-            $ligne = 0;
-            $determinent = 0;
-           // while($colonne<3){
-                //
-            //}
-        }
     }
 
 
