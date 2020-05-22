@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice04</title>
+    <title>Exercice06</title>
 </head>
 
 <body>
@@ -22,6 +22,8 @@
         $_SESSION["compteur"] = 1;
         $_SESSION["tableau"] = array();
 
+        //Afficher un message.
+        echo 'entrez 10 nombre : ';
         //afficher le formulaire.
         echo
             '<form action="" method="post">
